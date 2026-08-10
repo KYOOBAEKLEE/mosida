@@ -97,6 +97,14 @@ body {
   background: linear-gradient(160deg, #f3ead9, #e2cfae);
   color: var(--accent); box-shadow: 0 14px 28px -14px rgba(169, 124, 80, 0.55);
 }
+.haneul-thumb {
+  background: linear-gradient(165deg, #dceafb, #a8c8e8);
+  color: #1c3350; box-shadow: 0 14px 28px -14px rgba(96, 140, 190, 0.55);
+}
+.dahm-thumb {
+  background: linear-gradient(165deg, #24382f, #16241d);
+  color: #c9a86a; box-shadow: 0 14px 28px -14px rgba(20, 32, 26, 0.7);
+}
 .template-card b { display: block; font-family: var(--display); font-weight: 500; font-size: 0.9rem; }
 .template-card small { font-size: 0.72rem; color: var(--ink-soft); }
 .template-card.soon { opacity: 0.5; }

@@ -1,22 +1,21 @@
-# 랄프루프 진행 상황
+# 랄프루프 진행 상황 — ✅ 완성 기준 전부 충족
 
 ## 완성 기준 체크리스트
-- [ ] 1. 고품질 모바일 청첩장 템플릿 3종 이상 — **1/3 (담연 완성)**
-- [x] 2. 주문 제작 플로우 (order/ + make-invite.mjs)
-- [x] 3. 토스페이먼츠 결제 연동 코드 (위젯 v2 + api/confirm.js, 키만 꽂으면 됨)
-- [x] 4. 랜딩 페이지 + SEO (index.html, sitemap, robots, JSON-LD)
-- [x] 5. 로컬 동작 검증 (전 페이지 200, npm test 6/6, make-invite 실행 확인)
-- [x] 6. 배포 안내 문서 (DEPLOY.md)
+- [x] 1. 고품질 모바일 청첩장 템플릿 3종 — 담연(한지 클래식) · 하늘(하늘빛 모던) · 담음(딥그린 골드 럭셔리), 전부 브라우저 시각 검증 완료
+- [x] 2. 주문 제작 플로우 (order/ 폼 + make-invite.mjs 제작 스크립트)
+- [x] 3. 토스페이먼츠 결제 연동 — 위젯 v2 렌더링 확인(테스트 키), api/confirm.js 승인+금액검증+웹훅, 테스트 6/6
+- [x] 4. 랜딩 페이지 + SEO (sitemap, robots, JSON-LD, OG) + 이용약관/개인정보처리방침
+- [x] 5. 로컬 동작 검증 — 전 페이지 200, 전 템플릿 스크린샷 QA, npm test 통과
+- [x] 6. 배포 안내 문서 (DEPLOY.md) + 홍보 초안 (marketing/launch-posts.md)
 
-## 다음 이터레이션 할 일 (우선순위순)
-1. 템플릿 2호 "하늘" — 밝고 모던한 톤 (미니멀, 산세리프 계열, 하늘색). templates/haneul/
-2. 템플릿 3호 "담음" — 어둡고 고급스러운 톤 (딥그린/골드, 세리프). templates/dahm/
-3. 템플릿 완성 시 order/index.html 의 disabled 라디오 해제 + 랜딩 template-grid 링크 연결
-4. 브라우저 실기기 시각 QA (스크린샷으로 디자인 확인, 폰트/레이아웃 깨짐 체크)
-5. (여유 시) 방명록·참석여부(RSVP) — 백엔드 필요, Supabase 무료 티어. 지금은 스킵.
+## 남은 일 = 사장님(사용자)만 할 수 있는 일 — DEPLOY.md 참고
+1. GitHub 푸시 + Vercel 배포 (5분)
+2. 사업자등록 + 토스페이먼츠 가맹 가입 → 키 2개 꽂기 (order/order.js의 TOSS_CLIENT_KEY, Vercel 환경변수 TOSS_SECRET_KEY)
+3. 디스코드 웹훅 → ORDER_WEBHOOK_URL (주문 알림)
+4. 홍보 시작 (marketing/launch-posts.md 복붙)
 
-## 규칙
-- 템플릿은 danyeon 구조 복제: index.html + style.css + invite.js + data.js + img/
-- data.js 스키마는 모든 템플릿 공통 (make-invite.mjs가 의존)
-- invite.js 로직은 템플릿마다 복사 허용 (디자인 결합도 낮추기 위함)
-- i/test-preview/ 는 검증용 샘플 — 지우지 말 것
+## 이후 개선 아이디어 (판매 시작 후)
+- 방명록/RSVP (Supabase 무료 티어)
+- 카카오톡 공유 SDK (카카오 개발자 앱 키 필요)
+- 고객 사진 업로드 폼 (지금은 카톡 채널로 수령)
+- 템플릿 4호+ (판매 데이터 보고 결정)

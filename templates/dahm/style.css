@@ -1,0 +1,255 @@
+/* 담음 — 딥그린 벨벳 위에 금박을 얹은 호텔 웨딩 초대장 */
+:root {
+  --green-abyss: #101b16;   /* 페이지 배경, 가장 어두운 층 */
+  --green-deep: #1e2f28;    /* 본문 배경 */
+  --green-panel: #26382f;   /* 카드·패널 */
+  --gold: #c9a86a;
+  --gold-bright: #e3c98f;
+  --gold-dim: rgba(201, 168, 106, 0.42);
+  --gold-hairline: rgba(201, 168, 106, 0.24);
+  --ivory: #f2ecdf;
+  --ivory-soft: #c8c2b2;
+  --coral: #eda28f;         /* 일요일 — 다크 배경 대비 확보 */
+  --serif: "Gowun Batang", "Noto Serif KR", serif;
+  --display: "Song Myung", "Gowun Batang", serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--serif);
+  background: var(--green-abyss);
+  color: var(--ivory);
+  line-height: 1.85;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 벨벳 비네트 — 가장자리를 어둡게 감싸는 조명 */
+.vignette {
+  position: fixed; inset: 0; z-index: 10; pointer-events: none;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 12%, rgba(227, 201, 143, 0.05), transparent 55%),
+    radial-gradient(ellipse 140% 100% at 50% 50%, transparent 58%, rgba(6, 11, 9, 0.55) 100%);
+}
+
+#app {
+  max-width: 440px; margin: 0 auto; overflow: hidden;
+  background: var(--green-deep);
+  border-left: 1px solid var(--gold-hairline);
+  border-right: 1px solid var(--gold-hairline);
+}
+
+/* ---------- 표지 ---------- */
+.cover {
+  min-height: 100svh; position: relative;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 1.1rem 1.1rem 3.4rem;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(201, 168, 106, 0.10), transparent 60%),
+    var(--green-deep);
+}
+/* 이중 금박 프레임 */
+.cover-frame {
+  border: 1px solid var(--gold-dim);
+  outline: 1px solid var(--gold-hairline);
+  outline-offset: 4px;
+  padding: 3rem 1.4rem 2.6rem;
+  margin: 0.35rem;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+}
+.sprig { width: 120px; color: var(--gold); opacity: 0.85; margin-bottom: 1.4rem; }
+
+.cover-eyebrow {
+  font-family: var(--display); font-size: 0.66rem;
+  letter-spacing: 0.52em; text-indent: 0.52em; color: var(--gold);
+}
+.cover-names {
+  font-family: var(--display); font-weight: 400; font-size: 2rem;
+  margin: 1.3rem 0 1.9rem; letter-spacing: 0.14em; color: var(--ivory);
+}
+.cover-names em {
+  display: block; font-style: normal; font-family: var(--serif);
+  font-size: 0.78rem; color: var(--gold); margin: 0.55rem 0;
+  letter-spacing: 0.42em; text-indent: 0.42em;
+}
+.cover-photo {
+  width: min(72vw, 280px); aspect-ratio: 3 / 4; overflow: hidden;
+  border: 1px solid var(--gold-dim);
+  padding: 6px;                       /* 금박 매트 안 여백 */
+  background: var(--green-abyss);
+  box-shadow: 0 26px 60px -24px rgba(0, 0, 0, 0.8);
+}
+.cover-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cover-date {
+  margin-top: 2.1rem; font-size: 0.98rem;
+  letter-spacing: 0.16em; color: var(--gold-bright);
+}
+.cover-venue { font-size: 0.82rem; color: var(--ivory-soft); letter-spacing: 0.12em; margin-top: 0.2rem; }
+
+.scroll-hint { position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%); }
+.scroll-hint span {
+  display: block; width: 1px; height: 40px;
+  background: linear-gradient(var(--gold), transparent);
+  animation: fall 2.4s ease-in-out infinite;
+}
+@keyframes fall {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ---------- 공통 섹션 ---------- */
+.section { padding: 4.6rem 1.7rem; text-align: center; position: relative; }
+.section + .section::before {
+  content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 72px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+.section:nth-of-type(even) { background: var(--green-panel); }
+
+.section-title {
+  font-family: var(--display); font-weight: 400; font-size: 1.12rem;
+  letter-spacing: 0.34em; text-indent: 0.34em; color: var(--gold);
+  margin-bottom: 2.4rem;
+}
+.section-title::after {
+  content: ""; display: block; width: 34px; height: 1px;
+  margin: 1rem auto 0; background: var(--gold-dim);
+}
+
+.greeting-message { white-space: pre-line; font-size: 0.95rem; color: var(--ivory); }
+
+.parents { margin-top: 2.5rem; font-size: 0.95rem; color: var(--ivory-soft); }
+.parents b { font-weight: 700; color: var(--ivory); }
+.parents p + p { margin-top: 0.55rem; }
+
+.contact-row, .map-buttons { display: flex; gap: 0.6rem; justify-content: center; margin-top: 2.1rem; flex-wrap: wrap; }
+
+.btn-ghost {
+  font-family: var(--serif); font-size: 0.8rem; letter-spacing: 0.06em;
+  color: var(--gold-bright); background: transparent;
+  border: 1px solid var(--gold-dim); border-radius: 2px;
+  padding: 0.6rem 1.2rem; cursor: pointer; text-decoration: none;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.btn-ghost:active { background: var(--gold); color: var(--green-abyss); border-color: var(--gold); }
+
+/* ---------- 예식 안내 ---------- */
+.when-date { font-size: 1.02rem; margin-bottom: 2.1rem; letter-spacing: 0.05em; color: var(--ivory); }
+
+.calendar-card {
+  display: inline-block; padding: 1.3rem 1rem 1.1rem;
+  border: 1px solid var(--gold-hairline); background: var(--green-panel);
+  margin-bottom: 1.7rem;
+}
+.section:nth-of-type(even) .calendar-card { background: var(--green-deep); }
+.calendar {
+  display: inline-grid; grid-template-columns: repeat(7, 2.4rem);
+  gap: 0.15rem; font-size: 0.82rem; color: var(--ivory);
+}
+.calendar .dow {
+  color: var(--gold); font-family: var(--display);
+  font-size: 0.66rem; padding: 0.4rem 0 0.6rem;
+}
+.calendar .dow:first-child, .calendar .day.sun { color: var(--coral); }
+.calendar .day { padding: 0.42rem 0; border-radius: 50%; }
+.calendar .day.wedding-day {
+  background: var(--gold); color: var(--green-abyss); font-weight: 700;
+  box-shadow: 0 0 0 3px var(--green-deep), 0 0 0 4px var(--gold-dim);
+}
+.dday { font-size: 0.9rem; color: var(--ivory-soft); }
+.dday b { color: var(--gold-bright); font-weight: 700; }
+
+/* ---------- 갤러리 ---------- */
+.gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.55rem; }
+.gallery img {
+  width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+  border: 1px solid var(--gold-hairline);
+  padding: 4px; background: var(--green-abyss);   /* 금박 매트 */
+  cursor: pointer; transition: transform 0.25s, border-color 0.25s;
+}
+.gallery img:active { transform: scale(0.97); border-color: var(--gold); }
+/* 첫 사진은 가로 전면 — 갤러리의 헤드라인 */
+.gallery img:first-child { grid-column: span 2; aspect-ratio: 4 / 3; }
+
+/* ---------- 오시는 길 ---------- */
+.where-venue { font-size: 1rem; }
+.where-venue b { color: var(--gold-bright); }
+.where-address { font-size: 0.88rem; color: var(--ivory-soft); margin-top: 0.35rem; }
+
+/* ---------- 계좌 ---------- */
+.money-note { font-size: 0.88rem; color: var(--ivory-soft); margin-bottom: 1.9rem; }
+.accordion { max-width: 330px; margin: 0 auto; text-align: left; }
+.accordion details {
+  border: 1px solid var(--gold-hairline); background: var(--green-panel);
+  margin-bottom: 0.6rem; overflow: hidden;
+}
+.section:nth-of-type(even) .accordion details { background: var(--green-deep); }
+.accordion summary {
+  padding: 0.9rem 1.15rem; cursor: pointer; font-size: 0.9rem;
+  letter-spacing: 0.08em; color: var(--gold-bright);
+  list-style: none; position: relative;
+}
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary::after {
+  content: "﹀"; position: absolute; right: 1.15rem; color: var(--gold);
+  transition: transform 0.25s;
+}
+.accordion details[open] summary::after { transform: rotate(180deg); }
+.account-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
+  padding: 0.75rem 1.15rem; border-top: 1px solid var(--gold-hairline);
+  font-size: 0.82rem; color: var(--ivory);
+}
+.account-row .who { color: var(--ivory-soft); font-size: 0.74rem; }
+.copy-btn {
+  flex-shrink: 0; font-family: var(--serif); font-size: 0.72rem;
+  border: 1px solid var(--gold-dim); background: transparent; color: var(--gold-bright);
+  border-radius: 2px; padding: 0.32rem 0.75rem; cursor: pointer;
+}
+.copy-btn:active { background: var(--gold); color: var(--green-abyss); }
+
+/* ---------- 푸터 ---------- */
+.footer {
+  text-align: center; padding: 4.2rem 1.5rem 3rem;
+  background: var(--green-abyss); border-top: 1px solid var(--gold-hairline);
+}
+.footer-names {
+  font-family: var(--display); letter-spacing: 0.24em; text-indent: 0.24em;
+  color: var(--gold-bright); margin-bottom: 1.5rem;
+}
+.footer-brand { margin-top: 2.6rem; font-size: 0.66rem; letter-spacing: 0.34em; color: var(--ivory-soft); opacity: 0.6; }
+
+/* ---------- 라이트박스 ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 50; background: rgba(8, 14, 11, 0.94);
+  display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+}
+.lightbox[hidden] { display: none; }   /* display:flex가 hidden을 덮는 버그 방지 */
+.lightbox img {
+  max-width: 100%; max-height: 85vh;
+  border: 1px solid var(--gold-dim); padding: 5px; background: var(--green-abyss);
+}
+
+/* ---------- 토스트 ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 2.2rem; transform: translateX(-50%) translateY(20px);
+  background: var(--gold); color: var(--green-abyss); font-size: 0.82rem; font-weight: 700;
+  padding: 0.6rem 1.4rem; border-radius: 2px; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s; z-index: 60; white-space: nowrap;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---------- 스크롤 등장 ---------- */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 1s ease, transform 1s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .scroll-hint span { animation: none; }
+}
