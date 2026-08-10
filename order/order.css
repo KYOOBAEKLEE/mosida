@@ -1,0 +1,72 @@
+:root {
+  --paper: #faf7f1;
+  --ink: #40382f;
+  --ink-soft: #7d7266;
+  --accent: #a97c50;
+  --accent-soft: #d9c1a3;
+  --line: #e4dccd;
+  --serif: "Gowun Batang", serif;
+  --display: "Hahmlet", serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--paper); color: var(--ink); line-height: 1.7; word-break: keep-all; }
+
+.topbar { padding: 1rem 1.4rem; border-bottom: 1px solid var(--line); }
+.brand { font-family: var(--display); font-weight: 500; letter-spacing: 0.3em; color: var(--ink); text-decoration: none; }
+
+.order-wrap { max-width: 480px; margin: 0 auto; padding: 2.5rem 1.4rem 4rem; }
+h1 { font-family: var(--display); font-weight: 400; font-size: 1.5rem; letter-spacing: 0.1em; text-align: center; }
+.lead { text-align: center; font-size: 0.9rem; color: var(--ink-soft); margin: 0.8rem 0 2.5rem; }
+.lead b { color: var(--accent); }
+
+fieldset { border: 1px solid var(--line); border-radius: 12px; padding: 1.2rem; margin-bottom: 1.4rem; background: #fff; }
+legend { font-size: 0.85rem; letter-spacing: 0.15em; color: var(--accent); padding: 0 0.5rem; }
+legend small { color: var(--ink-soft); letter-spacing: 0; }
+
+label { display: block; font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 0.9rem; }
+input, textarea {
+  display: block; width: 100%; margin-top: 0.3rem;
+  font-family: var(--serif); font-size: 0.95rem; color: var(--ink);
+  border: 1px solid var(--line); border-radius: 8px; padding: 0.65rem 0.8rem; background: var(--paper);
+}
+input:focus, textarea:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent-soft); }
+input.invalid { border-color: #c0655a; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 0.8rem; }
+.hint { font-size: 0.78rem; color: var(--ink-soft); }
+
+.template-pick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+.template-pick label { margin: 0; }
+.template-pick input { display: none; }
+.pick-card {
+  display: block; text-align: center; border: 1px solid var(--line); border-radius: 10px;
+  padding: 0.9rem 0.4rem; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.pick-card b { display: block; font-family: var(--display); font-weight: 500; font-size: 0.95rem; color: var(--ink); }
+.pick-card small { font-size: 0.68rem; color: var(--ink-soft); }
+input:checked + .pick-card { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+input:disabled + .pick-card { opacity: 0.45; cursor: not-allowed; }
+
+.price-box {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--ink); color: var(--paper); border-radius: 12px;
+  padding: 1rem 1.3rem; margin: 1.8rem 0 1.2rem; font-size: 0.9rem;
+}
+.price-box b { font-size: 1.25rem; }
+
+.pay-btn {
+  width: 100%; font-family: var(--display); font-size: 1.05rem; letter-spacing: 0.1em;
+  background: var(--accent); color: #fff; border: none; border-radius: 12px;
+  padding: 1.05rem; cursor: pointer; margin-top: 1.2rem;
+}
+.pay-btn:disabled { opacity: 0.5; cursor: wait; }
+.pay-note { text-align: center; font-size: 0.75rem; color: var(--ink-soft); margin-top: 0.8rem; }
+
+/* success / fail 공용 */
+.result-wrap { max-width: 480px; margin: 0 auto; padding: 5rem 1.5rem; text-align: center; }
+.result-wrap .icon { font-size: 2.5rem; }
+.result-wrap h1 { margin: 1rem 0 0.8rem; }
+.result-wrap p { font-size: 0.9rem; color: var(--ink-soft); }
+.result-wrap .btn {
+  display: inline-block; margin-top: 2rem; font-size: 0.9rem; color: var(--ink);
+  border: 1px solid var(--accent-soft); border-radius: 999px; padding: 0.7rem 1.6rem; text-decoration: none;
+}

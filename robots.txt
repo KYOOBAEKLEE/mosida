@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /i/
+Disallow: /order/success.html
+Disallow: /order/fail.html
+Sitemap: https://mosida.example.com/sitemap.xml

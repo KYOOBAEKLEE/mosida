@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>결제 실패 — 모시다</title>
+<meta name="robots" content="noindex" />
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Hahmlet:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="order.css" />
+</head>
+<body>
+<header class="topbar"><a href="/" class="brand">모시다</a></header>
+<main class="result-wrap">
+  <div class="icon">🍂</div>
+  <h1>결제가 완료되지 않았습니다</h1>
+  <p id="reason">다시 시도해주세요.</p>
+  <a class="btn" href="/order/">다시 주문하기</a>
+</main>
+<script>
+  const msg = new URLSearchParams(location.search).get("message");
+  if (msg) document.getElementById("reason").textContent = msg;
+</script>
+</body>
+</html>

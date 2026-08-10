@@ -1,0 +1,10 @@
+{
+  "name": "mosida",
+  "private": true,
+  "version": "0.1.0",
+  "description": "모시다 — 하루 만에 완성되는 모바일 청첩장",
+  "scripts": {
+    "serve": "npx serve -l 3333 .",
+    "test": "node --test 'test/*.test.mjs'"
+  }
+}

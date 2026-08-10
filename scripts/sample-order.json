@@ -1,0 +1,21 @@
+{
+  "template": "danyeon",
+  "groomName": "김도현",
+  "brideName": "이서연",
+  "groomPhone": "010-1234-5678",
+  "bridePhone": "010-8765-4321",
+  "groomFather": "김영수",
+  "groomMother": "박미경",
+  "groomOrder": "장남",
+  "brideFather": "이준호",
+  "brideMother": "최은정",
+  "brideOrder": "장녀",
+  "weddingAt": "2026-10-24T13:00",
+  "venueName": "더채플앳청담",
+  "hall": "채플홀 3층",
+  "address": "서울 강남구 선릉로 757",
+  "greeting": "",
+  "groomAccounts": [{ "bank": "국민은행", "number": "123456-01-234567", "holder": "김도현" }],
+  "brideAccounts": [{ "bank": "카카오뱅크", "number": "3333-01-2345678", "holder": "이서연" }],
+  "ordererPhone": "010-1234-5678"
+}
