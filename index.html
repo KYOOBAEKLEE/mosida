@@ -29,7 +29,7 @@
 
 <header class="topbar">
   <span class="brand">모시다</span>
-  <a href="/order/" class="topbar-cta">주문하기</a>
+  <a href="order/" class="topbar-cta">주문하기</a>
 </header>
 
 <!-- 히어로 -->
@@ -38,11 +38,11 @@
   <h1 class="reveal">정중히,<br /><em>모십니다</em></h1>
   <p class="hero-sub reveal">정보만 보내주세요.<br /><b>24시간 안에</b> 두 분만의 청첩장이 완성됩니다.</p>
   <div class="hero-cta reveal">
-    <a class="btn-primary" href="/order/">지금 주문하기 — 9,900원부터</a>
+    <a class="btn-primary" href="order/">지금 주문하기 — 9,900원부터</a>
     <a class="btn-ghost" href="#templates">템플릿 24종 구경하기</a>
   </div>
   <div class="hero-phone reveal" aria-hidden="true">
-    <iframe src="/templates/danyeon/" title="청첩장 미리보기" loading="lazy" tabindex="-1"></iframe>
+    <iframe src="templates/danyeon/" title="청첩장 미리보기" loading="lazy" tabindex="-1"></iframe>
   </div>
 </section>
 
@@ -92,7 +92,7 @@
 <footer class="footer">
   <p class="footer-brand">모시다</p>
   <p class="footer-note">하루 만에 완성되는 모바일 청첩장</p>
-  <p class="footer-note"><a href="/terms.html" style="color:inherit">이용약관</a> · <a href="/privacy.html" style="color:inherit">개인정보처리방침</a></p>
+  <p class="footer-note"><a href="terms.html" style="color:inherit">이용약관</a> · <a href="privacy.html" style="color:inherit">개인정보처리방침</a></p>
 </footer>
 
 <script>
@@ -125,7 +125,7 @@
     signature: ["템플릿 8종", "갤러리 12장", "배경음악(BGM)", "베이직 기능 전부"],
     premium: ["템플릿 8종", "갤러리 20장", "BGM + 애니메이션 효과", "표지 인트로 모션"]
   };
-  fetch("/catalog.json").then(r => r.json()).then(cat => {
+  fetch("catalog.json").then(r => r.json()).then(cat => {
     const tiersEl = document.getElementById("template-tiers");
     tiersEl.innerHTML = Object.entries(cat.tiers).map(([key, tier]) => `
       <div class="tier-group">
@@ -134,7 +134,7 @@
         <div class="template-grid">
           ${cat.templates.filter(t => t.tier === key).map(t => {
             const [c1, c2, tc] = THUMB[t.id] || ["#eee", "#ddd", "#666"];
-            return `<a class="template-card reveal" href="/templates/${t.id}/">
+            return `<a class="template-card reveal" href="templates/${t.id}/">
               <span class="template-thumb" style="background:linear-gradient(160deg,${c1},${c2});color:${tc}">${t.name}</span>
               <b>${t.name}</b><small>${t.desc}</small>
             </a>`;
@@ -149,7 +149,7 @@
         <p class="price-label">${tier.label}</p>
         <p class="price"><b>${tier.price.toLocaleString()}</b>원</p>
         <ul>${TIER_FEAT[key].map(f => `<li>${f}</li>`).join("")}</ul>
-        <a class="btn-primary" href="/order/">주문하기</a>
+        <a class="btn-primary" href="order/">주문하기</a>
       </div>`).join("");
 
     observe(tiersEl);

@@ -41,7 +41,7 @@
         <input type="radio" name="template" value="${t.id}" ${current && current.id === t.id ? "checked" : ""} />
         <span class="pick-card">
           <b>${t.name}</b><small>${t.desc}</small>
-          <a class="preview-link" href="/templates/${t.id}/" target="_blank" rel="noopener">미리보기 ↗</a>
+          <a class="preview-link" href="../templates/${t.id}/" target="_blank" rel="noopener">미리보기 ↗</a>
         </span>
       </label>`)
       .join("");
@@ -77,7 +77,7 @@
   }
 
   (async () => {
-    CATALOG = await fetch("/catalog.json").then((r) => r.json());
+    CATALOG = await fetch("../catalog.json").then((r) => r.json());
 
     // ?t=템플릿id 로 진입하면 해당 템플릿 프리셀렉트
     const q = new URLSearchParams(location.search).get("t");
@@ -123,8 +123,8 @@
         orderId,
         orderName: `모시다 청첩장 — ${current.name}(${tier.label})`,
         customerName: order.groomName + "·" + order.brideName,
-        successUrl: location.origin + "/order/success.html",
-        failUrl: location.origin + "/order/fail.html",
+        successUrl: new URL("success.html", location.href).href,
+        failUrl: new URL("fail.html", location.href).href,
       });
     } catch (err) {
       console.warn("[mosida] 결제 중단", err);
