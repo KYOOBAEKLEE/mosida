@@ -1,0 +1,33 @@
+{
+  "tiers": {
+    "basic": { "label": "베이직", "price": 9900, "gallery": 6, "bgm": false, "effects": false },
+    "signature": { "label": "시그니처", "price": 16900, "gallery": 12, "bgm": true, "effects": false },
+    "premium": { "label": "프리미엄", "price": 24900, "gallery": 20, "bgm": true, "effects": true }
+  },
+  "templates": [
+    { "id": "sunbaek", "name": "순백", "tier": "basic", "desc": "티 없이 맑은 화이트 미니멀" },
+    { "id": "misaek", "name": "미색", "tier": "basic", "desc": "따뜻한 아이보리 세리프" },
+    { "id": "yeonbunhong", "name": "연분홍", "tier": "basic", "desc": "수줍은 봄빛 핑크" },
+    { "id": "saebyeok", "name": "새벽", "tier": "basic", "desc": "고요한 새벽빛 블루그레이" },
+    { "id": "yeondut", "name": "연둣빛", "tier": "basic", "desc": "싱그러운 새순의 연두" },
+    { "id": "morae", "name": "모래", "tier": "basic", "desc": "잔잔한 모래빛 베이지" },
+    { "id": "jaetbit", "name": "잿빛", "tier": "basic", "desc": "차분한 모노크롬 그레이" },
+    { "id": "meok", "name": "먹", "tier": "basic", "desc": "먹빛 서예의 단정함" },
+    { "id": "danyeon", "name": "담연", "tier": "signature", "desc": "맑고 고요한 한지 클래식" },
+    { "id": "haneul", "name": "하늘", "tier": "signature", "desc": "맑고 산뜻한 하늘빛 모던" },
+    { "id": "dahm", "name": "담음", "tier": "signature", "desc": "딥그린과 골드의 격조" },
+    { "id": "beotkkot", "name": "벚꽃", "tier": "signature", "desc": "봄날의 벚꽃 엔딩" },
+    { "id": "deulkkot", "name": "들꽃", "tier": "signature", "desc": "들꽃처럼 소박한 설렘" },
+    { "id": "film", "name": "필름", "tier": "signature", "desc": "빈티지 필름 카메라 감성" },
+    { "id": "suchae", "name": "수채", "tier": "signature", "desc": "번지는 수채화의 서정" },
+    { "id": "gaeul", "name": "가을", "tier": "signature", "desc": "깊어가는 단풍의 계절" },
+    { "id": "byeolbam", "name": "별밤", "tier": "premium", "desc": "별이 쏟아지는 밤하늘", "effect": "sparkle" },
+    { "id": "seolya", "name": "설야", "tier": "premium", "desc": "소복이 내리는 첫눈", "effect": "snow" },
+    { "id": "jangmi", "name": "장미", "tier": "premium", "desc": "버건디 장미의 열정", "effect": "petals-red" },
+    { "id": "moran", "name": "모란", "tier": "premium", "desc": "전통 모란과 금박의 화려함", "effect": "petals-gold" },
+    { "id": "midnight", "name": "미드나잇", "tier": "premium", "desc": "블랙과 골드의 밤", "effect": "sparkle" },
+    { "id": "dalbit", "name": "달빛", "tier": "premium", "desc": "달빛이 내려앉은 남빛 밤", "effect": "fireflies" },
+    { "id": "provence", "name": "프로방스", "tier": "premium", "desc": "라벤더 들판의 보랏빛", "effect": "petals-lavender" },
+    { "id": "baekya", "name": "백야", "tier": "premium", "desc": "아이보리와 진주빛 럭셔리", "effect": "petals-white" }
+  ]
+}

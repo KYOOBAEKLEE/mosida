@@ -1,0 +1,235 @@
+/* 수채(水彩) — 번지는 수채화의 서정. 화이트 바탕, 블루·핑크·라일락 워시 */
+:root {
+  --paper: #ffffff;
+  --ink: #4b5163;
+  --ink-soft: #8b90a3;
+  --blue: #bcd4ec;
+  --pink: #f3cfdb;
+  --lilac: #ddd3ef;
+  --accent: #7f95c4;       /* 물빛 블루 */
+  --accent-soft: #c4d2e8;
+  --line: #e7ebf2;
+  --serif: "Nanum Myeongjo", "Noto Serif KR", serif;
+  --display: "Hahmlet", "Nanum Myeongjo", serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--serif);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.8;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- 수채 워시 배경 (blur된 radial-gradient 블롭) ---------- */
+.wash { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.blob {
+  position: absolute; display: block; border-radius: 50%;
+  filter: blur(64px); opacity: 0.55;
+  animation: breathe 14s ease-in-out infinite alternate;
+}
+.blob-blue {
+  width: 62vmin; height: 56vmin; top: -8vmin; left: -14vmin;
+  background: radial-gradient(circle at 40% 40%, var(--blue), transparent 70%);
+}
+.blob-pink {
+  width: 58vmin; height: 54vmin; top: 30vh; right: -16vmin;
+  background: radial-gradient(circle at 55% 45%, var(--pink), transparent 70%);
+  animation-delay: -5s;
+}
+.blob-lilac {
+  width: 66vmin; height: 60vmin; bottom: 8vh; left: -12vmin;
+  background: radial-gradient(circle at 50% 50%, var(--lilac), transparent 70%);
+  animation-delay: -9s;
+}
+.blob-blue2 {
+  width: 48vmin; height: 46vmin; bottom: -10vmin; right: -8vmin;
+  background: radial-gradient(circle at 45% 55%, var(--blue), transparent 70%);
+  animation-delay: -2s;
+}
+@keyframes breathe {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(4vmin) scale(1.08); }
+}
+
+#app { max-width: 440px; margin: 0 auto; overflow: hidden; position: relative; z-index: 1; }
+
+/* ---------- 표지 ---------- */
+.cover {
+  min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 3.5rem 1.5rem 4rem; position: relative;
+}
+.cover-eyebrow {
+  font-family: var(--display); font-weight: 300; font-size: 0.7rem;
+  letter-spacing: 0.45em; color: var(--accent); text-indent: 0.45em;
+}
+.cover-names {
+  font-family: var(--display); font-weight: 400; font-size: 1.9rem;
+  margin: 1.2rem 0 1.8rem; letter-spacing: 0.08em;
+}
+.cover-names em {
+  display: block; font-style: normal; font-size: 0.8rem;
+  color: var(--ink-soft); margin: 0.4rem 0; letter-spacing: 0.3em; text-indent: 0.3em;
+}
+.cover-photo {
+  width: min(78vw, 300px); aspect-ratio: 3 / 4; overflow: hidden;
+  border-radius: 58% 42% 55% 45% / 46% 52% 48% 54%; /* 물방울처럼 번진 형태 */
+  box-shadow:
+    0 22px 55px -22px rgba(127, 149, 196, 0.55),
+    0 0 0 10px rgba(255, 255, 255, 0.6);
+}
+.cover-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cover-date { margin-top: 2rem; font-size: 1rem; letter-spacing: 0.15em; }
+.cover-venue { font-size: 0.85rem; color: var(--ink-soft); letter-spacing: 0.1em; }
+
+.scroll-hint { position: absolute; bottom: 1.4rem; left: 50%; transform: translateX(-50%); }
+.scroll-hint span {
+  display: block; width: 1px; height: 42px;
+  background: linear-gradient(var(--accent-soft), transparent);
+  animation: drip 2.2s ease-in-out infinite;
+}
+@keyframes drip {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ---------- 공통 섹션 — 경계가 물감 번지듯 ---------- */
+.section { padding: 4.5rem 1.7rem; text-align: center; }
+.section:nth-of-type(even) {
+  background: linear-gradient(180deg,
+    transparent,
+    rgba(188, 212, 236, 0.16) 18%,
+    rgba(221, 211, 239, 0.2) 50%,
+    rgba(243, 207, 219, 0.16) 82%,
+    transparent);
+}
+
+.section-title {
+  font-family: var(--display); font-weight: 400; font-size: 1.15rem;
+  letter-spacing: 0.28em; text-indent: 0.28em; color: var(--accent);
+  margin-bottom: 2.2rem;
+}
+.ornament { color: var(--pink); font-size: 1.15rem; margin-bottom: 1rem; text-shadow: 0 0 14px rgba(243, 207, 219, 0.9); }
+
+.greeting-message { white-space: pre-line; font-size: 0.95rem; color: var(--ink); }
+
+.parents { margin-top: 2.4rem; font-size: 0.95rem; }
+.parents b { font-weight: 700; }
+.parents p + p { margin-top: 0.5rem; }
+
+.contact-row, .map-buttons { display: flex; gap: 0.6rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+
+.btn-ghost {
+  font-family: var(--serif); font-size: 0.82rem; color: var(--ink);
+  background: rgba(255, 255, 255, 0.65); border: 1px solid var(--accent-soft); border-radius: 999px;
+  padding: 0.55rem 1.15rem; cursor: pointer; text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+}
+.btn-ghost:active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* ---------- 날짜 ---------- */
+.when-date { font-size: 1.02rem; margin-bottom: 2rem; letter-spacing: 0.05em; }
+
+.calendar {
+  display: inline-grid; grid-template-columns: repeat(7, 2.5rem);
+  gap: 0.15rem; font-size: 0.82rem; margin-bottom: 1.6rem;
+}
+.calendar .dow { color: var(--ink-soft); font-size: 0.7rem; padding: 0.4rem 0; }
+.calendar .dow:first-child, .calendar .day.sun { color: #cd8296; }
+.calendar .day { padding: 0.45rem 0; border-radius: 50%; }
+.calendar .day.wedding-day {
+  background: radial-gradient(circle, var(--accent) 55%, rgba(127, 149, 196, 0.55));
+  color: #fff; font-weight: 700;
+  box-shadow: 0 0 18px 2px rgba(127, 149, 196, 0.5);
+}
+.dday { font-size: 0.9rem; color: var(--ink-soft); }
+.dday b { color: var(--accent); font-weight: 700; }
+
+/* ---------- 갤러리 ---------- */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+.gallery img {
+  width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+  border-radius: 14px; cursor: pointer;
+  box-shadow: 0 8px 22px -12px rgba(127, 149, 196, 0.45);
+  transition: transform 0.25s;
+}
+.gallery img:active { transform: scale(0.96); }
+/* 첫 사진은 크게 — 리듬감 */
+.gallery img:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+
+/* ---------- 오시는 길 ---------- */
+.where-venue { font-size: 1rem; }
+.where-address { font-size: 0.88rem; color: var(--ink-soft); margin-top: 0.3rem; }
+
+/* ---------- 계좌 ---------- */
+.money-note { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 1.8rem; }
+.accordion { max-width: 320px; margin: 0 auto; text-align: left; }
+.accordion details {
+  border: 1px solid var(--line); border-radius: 14px;
+  background: rgba(255, 255, 255, 0.75); margin-bottom: 0.6rem; overflow: hidden;
+  box-shadow: 0 10px 26px -18px rgba(127, 149, 196, 0.5);
+}
+.accordion summary {
+  padding: 0.85rem 1.1rem; cursor: pointer; font-size: 0.9rem;
+  letter-spacing: 0.06em; list-style: none; position: relative;
+}
+.accordion summary::after {
+  content: "﹀"; position: absolute; right: 1.1rem; color: var(--accent);
+  transition: transform 0.25s;
+}
+.accordion details[open] summary::after { transform: rotate(180deg); }
+.account-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
+  padding: 0.7rem 1.1rem; border-top: 1px solid var(--line); font-size: 0.82rem;
+}
+.account-row .who { color: var(--ink-soft); font-size: 0.75rem; }
+.copy-btn {
+  flex-shrink: 0; font-family: var(--serif); font-size: 0.72rem;
+  border: 1px solid var(--accent-soft); background: transparent; color: var(--accent);
+  border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer;
+}
+
+/* ---------- 푸터 ---------- */
+.footer {
+  text-align: center; padding: 4.5rem 1.5rem 3rem; color: var(--ink);
+  background: linear-gradient(180deg,
+    transparent,
+    rgba(188, 212, 236, 0.28) 35%,
+    rgba(221, 211, 239, 0.38));
+}
+.footer-names { font-family: var(--display); letter-spacing: 0.2em; margin-bottom: 1.4rem; }
+.footer-brand { margin-top: 2.5rem; font-size: 0.68rem; letter-spacing: 0.3em; opacity: 0.45; }
+
+/* ---------- 라이트박스 ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 50; background: rgba(63, 70, 92, 0.9);
+  display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+}
+.lightbox[hidden] { display: none; }
+.lightbox img { max-width: 100%; max-height: 85vh; border-radius: 10px; }
+
+/* ---------- 토스트 ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 2.2rem; transform: translateX(-50%) translateY(20px);
+  background: var(--ink); color: #fff; font-size: 0.82rem;
+  padding: 0.6rem 1.3rem; border-radius: 999px; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s; z-index: 60; white-space: nowrap;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---------- 스크롤 등장 ---------- */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .scroll-hint span, .blob { animation: none; }
+}

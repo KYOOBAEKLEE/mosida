@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>모시다 — 하루 만에 완성되는 모바일 청첩장</title>
-<meta name="description" content="정보만 보내주세요. 24시간 안에 완성되는 프리미엄 모바일 청첩장. 수정 무제한, 모든 기능 포함 24,900원 단일가." />
+<title>모시다 — 하루 만에 완성되는 모바일 청첩장, 템플릿 24종</title>
+<meta name="description" content="템플릿 24종 중 골라서 정보만 보내주세요. 24시간 안에 완성. BGM·애니메이션·갤러리·지도·계좌 안내, 수정 무제한. 9,900원부터." />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="모시다 — 하루 만에 완성되는 모바일 청첩장" />
-<meta property="og:description" content="정보만 보내주세요. 24시간 안에 완성됩니다. 모든 기능 포함 24,900원." />
+<meta property="og:description" content="템플릿 24종, 9,900원부터. 24시간 안에 완성, 수정 무제한." />
 <meta property="og:locale" content="ko_KR" />
 <link rel="canonical" href="https://mosida.example.com/" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,7 +20,7 @@
   "@type": "Product",
   "name": "모시다 모바일 청첩장",
   "description": "24시간 안에 완성되는 프리미엄 모바일 청첩장. 갤러리, 지도, 계좌 안내, 공유 기능 포함.",
-  "offers": { "@type": "Offer", "price": "24900", "priceCurrency": "KRW", "availability": "https://schema.org/InStock" }
+  "offers": { "@type": "AggregateOffer", "lowPrice": "9900", "highPrice": "24900", "priceCurrency": "KRW", "availability": "https://schema.org/InStock" }
 }
 </script>
 </head>
@@ -38,8 +38,8 @@
   <h1 class="reveal">정중히,<br /><em>모십니다</em></h1>
   <p class="hero-sub reveal">정보만 보내주세요.<br /><b>24시간 안에</b> 두 분만의 청첩장이 완성됩니다.</p>
   <div class="hero-cta reveal">
-    <a class="btn-primary" href="/order/">지금 주문하기 — 24,900원</a>
-    <a class="btn-ghost" href="/templates/danyeon/">샘플 구경하기</a>
+    <a class="btn-primary" href="/order/">지금 주문하기 — 9,900원부터</a>
+    <a class="btn-ghost" href="#templates">템플릿 24종 구경하기</a>
   </div>
   <div class="hero-phone reveal" aria-hidden="true">
     <iframe src="/templates/danyeon/" title="청첩장 미리보기" loading="lazy" tabindex="-1"></iframe>
@@ -56,25 +56,16 @@
 
 <!-- 템플릿 -->
 <section class="section templates" id="templates">
-  <h2 class="section-title reveal">템플릿</h2>
-  <p class="section-sub reveal">모든 템플릿에 갤러리 · 지도 · 계좌 안내 · 공유 기능이 들어 있습니다.</p>
-  <div class="template-grid">
-    <a class="template-card reveal" href="/templates/danyeon/">
-      <span class="template-thumb danyeon-thumb">담연</span>
-      <b>담연 淡然</b>
-      <small>맑고 고요한 한지 위의 클래식</small>
-    </a>
-    <a class="template-card reveal" href="/templates/haneul/">
-      <span class="template-thumb haneul-thumb">하늘</span>
-      <b>하늘</b>
-      <small>맑고 산뜻한 하늘빛 모던</small>
-    </a>
-    <a class="template-card reveal" href="/templates/dahm/">
-      <span class="template-thumb dahm-thumb">담음</span>
-      <b>담음</b>
-      <small>딥그린과 골드의 럭셔리</small>
-    </a>
-  </div>
+  <h2 class="section-title reveal">템플릿 24종</h2>
+  <p class="section-sub reveal">모든 템플릿에 갤러리 · 달력 · 지도 · 계좌 안내 · 공유 기능이 기본.<br />카드를 누르면 실제 청첩장을 미리볼 수 있어요.</p>
+  <div id="template-tiers"></div>
+</section>
+
+<!-- 가격 -->
+<section class="section pricing" id="pricing">
+  <h2 class="section-title reveal">가격</h2>
+  <div class="tier-cards" id="tier-cards"></div>
+  <p class="section-sub" style="margin-top:1.5rem">모든 등급 공통 — 24시간 완성 · 수정 무제한 · 마음에 안 들면 전액 환불</p>
 </section>
 
 <!-- 이용 방법 -->
@@ -87,24 +78,6 @@
   </ol>
 </section>
 
-<!-- 가격 -->
-<section class="section pricing">
-  <h2 class="section-title reveal">가격</h2>
-  <div class="price-card reveal">
-    <p class="price-label">모든 기능 포함 단일가</p>
-    <p class="price"><b>24,900</b>원</p>
-    <ul>
-      <li>고급 템플릿 디자인</li>
-      <li>사진 갤러리 + 라이트박스</li>
-      <li>예식 달력 · D-day</li>
-      <li>카카오맵 · 네이버지도 연동</li>
-      <li>계좌번호 안내 (복사 버튼)</li>
-      <li>혼주 연락 · 공유하기</li>
-      <li>수정 무제한 · 만족 못하면 전액 환불</li>
-    </ul>
-    <a class="btn-primary" href="/order/">주문하기</a>
-  </div>
-</section>
 
 <!-- FAQ -->
 <section class="section faq">
@@ -126,9 +99,61 @@
   const io = new IntersectionObserver((es) => es.forEach((e) => {
     if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
   }), { threshold: 0.12 });
-  document.querySelectorAll(".reveal").forEach((el, i) => {
+  const observe = (root) => root.querySelectorAll(".reveal:not(.in)").forEach((el, i) => {
     el.style.transitionDelay = (i % 4) * 80 + "ms";
     io.observe(el);
+  });
+  observe(document);
+
+  // 템플릿 24종 + 가격 카드 렌더링 (catalog.json = 단일 진실 소스)
+  const THUMB = {
+    sunbaek: ["#f4f3f0", "#dcd8d1", "#8a867f"], misaek: ["#f0e7d3", "#dcc9a4", "#8f7a52"],
+    yeonbunhong: ["#f7dfe4", "#eab6c2", "#b06a7d"], saebyeok: ["#e3eaf2", "#bfcedd", "#5e7690"],
+    yeondut: ["#e6f0dc", "#c2d6ae", "#5f7f4f"], morae: ["#efe8d8", "#d6c7ab", "#8f8062"],
+    jaetbit: ["#e8e8e8", "#c9c9c9", "#5a5a5a"], meok: ["#f0f0ec", "#cfcec9", "#26241f"],
+    danyeon: ["#f3ead9", "#e2cfae", "#a97c50"], haneul: ["#dceafb", "#a8c8e8", "#1c3350"],
+    dahm: ["#24382f", "#16241d", "#c9a86a"], beotkkot: ["#fbe9ee", "#f5d5dd", "#c76a85"],
+    deulkkot: ["#fbf8ef", "#e8dfb8", "#7f9450"], film: ["#f2ede3", "#d8ccb8", "#8a4438"],
+    suchae: ["#eef4fb", "#e8dff2", "#7a8fc0"], gaeul: ["#faf5ec", "#e8c9a8", "#c07a4a"],
+    byeolbam: ["#1d2a4a", "#141d33", "#e8d5a0"], seolya: ["#eef4f9", "#dce8f2", "#7d93ad"],
+    jangmi: ["#f8f2ea", "#e2c4c4", "#7a2a35"], moran: ["#5a2838", "#4a2030", "#c9a154"],
+    midnight: ["#26242c", "#17161a", "#d4bc8a"], dalbit: ["#243350", "#1a2438", "#dfe6ee"],
+    provence: ["#f0ecf7", "#d5cae8", "#7a68a0"], baekya: ["#faf8f2", "#ede5d5", "#a89877"]
+  };
+  const TIER_FEAT = {
+    basic: ["템플릿 8종", "갤러리 6장", "달력·D-day·지도·계좌복사", "공유하기"],
+    signature: ["템플릿 8종", "갤러리 12장", "배경음악(BGM)", "베이직 기능 전부"],
+    premium: ["템플릿 8종", "갤러리 20장", "BGM + 애니메이션 효과", "표지 인트로 모션"]
+  };
+  fetch("/catalog.json").then(r => r.json()).then(cat => {
+    const tiersEl = document.getElementById("template-tiers");
+    tiersEl.innerHTML = Object.entries(cat.tiers).map(([key, tier]) => `
+      <div class="tier-group">
+        <h3 class="tier-heading reveal">${tier.label}
+          <small>${tier.price.toLocaleString()}원</small></h3>
+        <div class="template-grid">
+          ${cat.templates.filter(t => t.tier === key).map(t => {
+            const [c1, c2, tc] = THUMB[t.id] || ["#eee", "#ddd", "#666"];
+            return `<a class="template-card reveal" href="/templates/${t.id}/">
+              <span class="template-thumb" style="background:linear-gradient(160deg,${c1},${c2});color:${tc}">${t.name}</span>
+              <b>${t.name}</b><small>${t.desc}</small>
+            </a>`;
+          }).join("")}
+        </div>
+      </div>`).join("");
+
+    document.getElementById("tier-cards").innerHTML =
+      Object.entries(cat.tiers).map(([key, tier], i) => `
+      <div class="price-card reveal${key === "premium" ? " best" : ""}">
+        ${key === "premium" ? '<span class="best-badge">인기</span>' : ""}
+        <p class="price-label">${tier.label}</p>
+        <p class="price"><b>${tier.price.toLocaleString()}</b>원</p>
+        <ul>${TIER_FEAT[key].map(f => `<li>${f}</li>`).join("")}</ul>
+        <a class="btn-primary" href="/order/">주문하기</a>
+      </div>`).join("");
+
+    observe(tiersEl);
+    observe(document.getElementById("tier-cards"));
   });
 </script>
 </body>

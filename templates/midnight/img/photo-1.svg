@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#24222b"/><stop offset="1" stop-color="#17161a"/></linearGradient></defs>
+<rect width="600" height="600" fill="url(#g)"/><rect x="16" y="16" width="568" height="568" fill="none" stroke="#8f7f5c" stroke-width="1.5"/>
+<rect x="26" y="26" width="548" height="548" fill="none" stroke="#d4bc8a" stroke-opacity="0.35" stroke-width="1"/>
+<g stroke-opacity="0.75"><g fill="none" stroke="#d4bc8a" stroke-width="1.5"><line x1="300" y1="390" x2="132.6" y2="360.5"/><line x1="300" y1="390" x2="152.8" y2="305.0"/><line x1="300" y1="390" x2="190.7" y2="259.8"/><line x1="300" y1="390" x2="241.9" y2="230.3"/><line x1="300" y1="390" x2="300.0" y2="220.0"/><line x1="300" y1="390" x2="358.1" y2="230.3"/><line x1="300" y1="390" x2="409.3" y2="259.8"/><line x1="300" y1="390" x2="447.2" y2="305.0"/><line x1="300" y1="390" x2="467.4" y2="360.5"/><path d="M 130 390 A 170 170 0 0 1 470 390"/><path d="M 187.8 390 A 112.2 112.2 0 0 1 412.2 390"/><path d="M 243.9 390 A 56.1 56.1 0 0 1 356.1 390"/></g></g>
+</svg>

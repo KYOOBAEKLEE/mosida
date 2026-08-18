@@ -34,7 +34,19 @@ input.invalid { border-color: #c0655a; }
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 0.8rem; }
 .hint { font-size: 0.78rem; color: var(--ink-soft); }
 
-.template-pick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+.tier-tabs { display: flex; gap: 0.4rem; margin-bottom: 0.9rem; }
+.tier-tab {
+  flex: 1; font-family: var(--serif); font-size: 0.85rem; color: var(--ink-soft);
+  background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
+  padding: 0.55rem 0.3rem; cursor: pointer;
+}
+.tier-tab small { display: block; font-size: 0.72rem; color: var(--accent); }
+.tier-tab.on { border-color: var(--accent); color: var(--ink); box-shadow: 0 0 0 1px var(--accent); }
+.preview-link {
+  display: block; margin-top: 0.4rem; font-size: 0.68rem; color: var(--accent);
+  text-decoration: none;
+}
+.template-pick { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
 .template-pick label { margin: 0; }
 .template-pick input { display: none; }
 .pick-card {

@@ -20,15 +20,10 @@
 
   <form id="order-form" novalidate>
     <fieldset>
-      <legend>템플릿 선택</legend>
-      <div class="template-pick" id="template-pick">
-        <label><input type="radio" name="template" value="danyeon" checked />
-          <span class="pick-card"><b>담연</b><small>맑고 고요한 클래식</small></span></label>
-        <label><input type="radio" name="template" value="haneul" />
-          <span class="pick-card"><b>하늘</b><small>맑고 산뜻한 모던</small></span></label>
-        <label><input type="radio" name="template" value="dahm" />
-          <span class="pick-card"><b>담음</b><small>딥그린 골드 럭셔리</small></span></label>
-      </div>
+      <legend>템플릿 선택 <small>(카드를 누르면 선택, 미리보기로 직접 확인)</small></legend>
+      <div id="tier-tabs" class="tier-tabs"></div>
+      <div class="template-pick" id="template-pick"></div>
+      <p class="hint" id="tier-desc"></p>
     </fieldset>
 
     <fieldset>
@@ -62,14 +57,14 @@
     </fieldset>
 
     <div class="price-box">
-      <span>모든 기능 포함 단일가</span>
-      <b>24,900원</b>
+      <span id="price-label">템플릿을 선택해주세요</span>
+      <b id="price-value"></b>
     </div>
 
     <div id="payment-method"></div>
     <div id="agreement"></div>
 
-    <button type="submit" class="pay-btn" id="pay-btn">24,900원 결제하기</button>
+    <button type="submit" class="pay-btn" id="pay-btn">결제하기</button>
     <p class="pay-note">결제 완료 후 24시간 이내 완성 · 수정 무제한 · 마음에 안 들면 전액 환불</p>
   </form>
 </main>

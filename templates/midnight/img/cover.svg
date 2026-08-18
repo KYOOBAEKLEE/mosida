@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#24222b"/><stop offset="1" stop-color="#17161a"/></linearGradient></defs>
+<rect width="600" height="800" fill="url(#g)"/><rect x="16" y="16" width="568" height="768" fill="none" stroke="#8f7f5c" stroke-width="1.5"/>
+<rect x="26" y="26" width="548" height="748" fill="none" stroke="#d4bc8a" stroke-opacity="0.35" stroke-width="1"/>
+<g fill="none" stroke="#d4bc8a" stroke-width="1.5"><line x1="300" y1="400" x2="142.4" y2="372.2"/><line x1="300" y1="400" x2="161.4" y2="320.0"/><line x1="300" y1="400" x2="197.2" y2="277.4"/><line x1="300" y1="400" x2="245.3" y2="249.6"/><line x1="300" y1="400" x2="300.0" y2="240.0"/><line x1="300" y1="400" x2="354.7" y2="249.6"/><line x1="300" y1="400" x2="402.8" y2="277.4"/><line x1="300" y1="400" x2="438.6" y2="320.0"/><line x1="300" y1="400" x2="457.6" y2="372.2"/><path d="M 140 400 A 160 160 0 0 1 460 400"/><path d="M 194.39999999999998 400 A 105.60000000000001 105.60000000000001 0 0 1 405.6 400"/><path d="M 247.2 400 A 52.800000000000004 52.800000000000004 0 0 1 352.8 400"/></g>
+<path d="M 300 454 L 316 470 L 300 486 L 284 470 Z" fill="none" stroke="#d4bc8a" stroke-width="1.5"/>
+<line x1="180" y1="530" x2="420" y2="530" stroke="#d4bc8a" stroke-width="1"/>
+</svg>

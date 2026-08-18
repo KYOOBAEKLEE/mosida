@@ -1,0 +1,241 @@
+/* 프로방스 — 라벤더 들판의 보랏빛 오후, 남프랑스 시골 결혼식 */
+:root {
+  --paper: #faf8f4;
+  --paper-deep: #f4f1f8;
+  --ink: #494356;
+  --ink-soft: #837c8f;
+  --lav: #9a86c0;
+  --lav-deep: #7d68a6;
+  --lav-soft: #cfc5e3;
+  --sage: #8ba283;
+  --sage-soft: #c6d1bd;
+  --line: #e6e1ee;
+  --body: "Gowun Dodum", sans-serif;
+  --display: "Hahmlet", serif;
+  --sprig: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 120' fill='none' stroke-width='1.6' stroke-linecap='round'%3E%3Cg stroke='%239a86c0'%3E%3Cpath d='M30 116 C 26 84 34 56 30 28'/%3E%3Cellipse cx='30' cy='22' rx='4' ry='7'/%3E%3Cellipse cx='22' cy='34' rx='4' ry='6' transform='rotate(-35 22 34)'/%3E%3Cellipse cx='38' cy='34' rx='4' ry='6' transform='rotate(35 38 34)'/%3E%3Cellipse cx='21' cy='48' rx='4' ry='6' transform='rotate(-35 21 48)'/%3E%3Cellipse cx='39' cy='48' rx='4' ry='6' transform='rotate(35 39 48)'/%3E%3Cellipse cx='22' cy='62' rx='4' ry='6' transform='rotate(-35 22 62)'/%3E%3Cellipse cx='38' cy='62' rx='4' ry='6' transform='rotate(35 38 62)'/%3E%3C/g%3E%3Cpath d='M30 96 C 20 92 14 84 12 74' stroke='%238ba283'/%3E%3C/svg%3E");
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--body);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.8;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 리넨 질감 — 노이즈 + 미세한 직조 결 */
+.linen {
+  position: fixed; inset: 0; z-index: 10; pointer-events: none; opacity: 0.55;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.60 0 0 0 0 0.53 0 0 0 0 0.75 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(0deg, rgba(154, 134, 192, 0.025) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(139, 162, 131, 0.02) 0 1px, transparent 1px 3px);
+}
+
+#app { max-width: 440px; margin: 0 auto; overflow: hidden; }
+
+/* ---------- 표지 ---------- */
+.cover {
+  min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 3.5rem 1.5rem 4rem; position: relative;
+  background: linear-gradient(var(--paper) 55%, var(--paper-deep));
+}
+
+/* 들판 가장자리의 라벤더 줄기 라인아트 */
+.sprig {
+  position: absolute; bottom: -0.6rem; width: 74px; height: 148px;
+  background: var(--sprig) center / contain no-repeat;
+  opacity: 0.6; transform-origin: bottom center;
+  animation: sway 5s ease-in-out infinite alternate;
+}
+.sprig-left { left: 0.4rem; rotate: -8deg; }
+.sprig-right { right: 0.4rem; rotate: 8deg; scale: -1 1; animation-delay: -2.5s; }
+@keyframes sway {
+  from { transform: rotate(-2.5deg); }
+  to { transform: rotate(2.5deg); }
+}
+
+.cover-eyebrow {
+  font-family: var(--display); font-weight: 300; font-size: 0.7rem;
+  letter-spacing: 0.45em; color: var(--lav); text-indent: 0.45em;
+}
+.cover-names {
+  font-family: var(--display); font-weight: 400; font-size: 1.9rem;
+  margin: 1.2rem 0 1.8rem; letter-spacing: 0.08em;
+}
+.cover-names em {
+  display: block; font-style: normal; font-size: 0.8rem;
+  color: var(--ink-soft); margin: 0.4rem 0; letter-spacing: 0.3em; text-indent: 0.3em;
+}
+.cover-photo {
+  width: min(76vw, 290px); aspect-ratio: 3 / 4; overflow: hidden;
+  border-radius: 160px 160px 12px 12px;
+  outline: 1px solid var(--lav-soft); outline-offset: 9px;
+  box-shadow: 0 22px 48px -20px rgba(125, 104, 166, 0.5);
+}
+.cover-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cover-stem {
+  width: 26px; height: 52px; margin-top: 1.9rem;
+  background: var(--sprig) center / contain no-repeat;
+}
+.cover-date { margin-top: 0.8rem; font-size: 1rem; letter-spacing: 0.15em; }
+.cover-venue { font-size: 0.85rem; color: var(--ink-soft); letter-spacing: 0.1em; }
+
+/* 인트로 — 들판에 바람이 스치듯 좌→우 (3초 이내) */
+.intro {
+  opacity: 0;
+  animation: wind-in 1.1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+@keyframes wind-in {
+  from { opacity: 0; transform: translateX(-46px); filter: blur(4px); }
+  65% { filter: blur(0); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.cover-eyebrow.intro { animation-delay: 0.15s; }
+.cover-names.intro { animation-delay: 0.35s; }
+.cover-photo.intro { animation-delay: 0.6s; }
+.cover-stem.intro { animation-delay: 0.95s; }
+.cover-date.intro { animation-delay: 1.1s; }
+.cover-venue.intro { animation-delay: 1.25s; }
+
+.scroll-hint { position: absolute; bottom: 1.4rem; left: 50%; transform: translateX(-50%); }
+.scroll-hint span {
+  display: block; width: 1px; height: 42px;
+  background: linear-gradient(var(--lav-soft), transparent);
+  animation: drip 2.2s ease-in-out infinite;
+}
+@keyframes drip {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ---------- 공통 섹션 ---------- */
+.section { padding: 4.5rem 1.7rem; text-align: center; }
+.section:nth-of-type(even) { background: var(--paper-deep); }
+
+.section-title {
+  font-family: var(--display); font-weight: 400; font-size: 1.15rem;
+  letter-spacing: 0.28em; text-indent: 0.28em; color: var(--lav-deep);
+  margin-bottom: 2.2rem;
+}
+.ornament {
+  width: 24px; height: 48px; margin: 0 auto 1rem;
+  background: var(--sprig) center / contain no-repeat; opacity: 0.7;
+}
+
+.greeting-message { white-space: pre-line; font-size: 0.95rem; }
+
+.parents { margin-top: 2.4rem; font-size: 0.95rem; }
+.parents b { font-weight: 700; color: var(--lav-deep); }
+.parents p + p { margin-top: 0.5rem; }
+
+.contact-row, .map-buttons { display: flex; gap: 0.6rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+
+.btn-ghost {
+  font-family: var(--body); font-size: 0.82rem; color: var(--ink);
+  background: transparent; border: 1px solid var(--sage-soft); border-radius: 999px;
+  padding: 0.55rem 1.15rem; cursor: pointer; text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+}
+.btn-ghost:active { background: var(--lav); color: var(--paper); border-color: var(--lav); }
+
+/* ---------- 날짜 ---------- */
+.when-date { font-size: 1.02rem; margin-bottom: 2rem; letter-spacing: 0.05em; }
+
+.calendar {
+  display: inline-grid; grid-template-columns: repeat(7, 2.5rem);
+  gap: 0.15rem; font-size: 0.82rem; margin-bottom: 1.6rem;
+}
+.calendar .dow { color: var(--sage); font-size: 0.7rem; padding: 0.4rem 0; }
+.calendar .dow:first-child, .calendar .day.sun { color: #bf7069; }
+.calendar .day { padding: 0.45rem 0; border-radius: 50%; }
+.calendar .day.wedding-day {
+  background: var(--lav); color: var(--paper); font-weight: 700;
+  box-shadow: 0 6px 14px -6px var(--lav);
+}
+.dday { font-size: 0.9rem; color: var(--ink-soft); }
+.dday b { color: var(--lav-deep); font-weight: 700; }
+
+/* ---------- 갤러리 ---------- */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+.gallery img {
+  width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+  border-radius: 10px; cursor: pointer; border: 1px solid var(--line);
+  transition: transform 0.25s;
+}
+.gallery img:active { transform: scale(0.96); }
+/* 첫 사진은 들판처럼 가로로 넓게 */
+.gallery img:first-child { grid-column: span 3; aspect-ratio: 3 / 2; border-radius: 14px; }
+
+/* ---------- 오시는 길 ---------- */
+.where-venue { font-size: 1rem; }
+.where-address { font-size: 0.88rem; color: var(--ink-soft); margin-top: 0.3rem; }
+
+/* ---------- 계좌 ---------- */
+.money-note { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 1.8rem; }
+.accordion { max-width: 320px; margin: 0 auto; text-align: left; }
+.accordion details {
+  border: 1px solid var(--line); border-radius: 12px;
+  background: var(--paper); margin-bottom: 0.6rem; overflow: hidden;
+}
+.accordion summary {
+  padding: 0.85rem 1.1rem; cursor: pointer; font-size: 0.9rem;
+  letter-spacing: 0.06em; list-style: none; position: relative;
+}
+.accordion summary::after {
+  content: "﹀"; position: absolute; right: 1.1rem; color: var(--lav);
+  transition: transform 0.25s;
+}
+.accordion details[open] summary::after { transform: rotate(180deg); }
+.account-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
+  padding: 0.7rem 1.1rem; border-top: 1px solid var(--line); font-size: 0.82rem;
+}
+.account-row .who { color: var(--ink-soft); font-size: 0.75rem; }
+.copy-btn {
+  flex-shrink: 0; font-family: var(--body); font-size: 0.72rem;
+  border: 1px solid var(--lav-soft); background: transparent; color: var(--lav-deep);
+  border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer;
+}
+
+/* ---------- 푸터 ---------- */
+.footer { text-align: center; padding: 4rem 1.5rem 3rem; background: #3f3852; color: var(--paper); }
+.footer-names { font-family: var(--display); letter-spacing: 0.2em; margin-bottom: 1.4rem; }
+.footer .btn-ghost { color: var(--paper); border-color: rgba(207, 197, 227, 0.45); }
+.footer-brand { margin-top: 2.5rem; font-size: 0.68rem; letter-spacing: 0.3em; opacity: 0.45; }
+
+/* ---------- 라이트박스 ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 50; background: rgba(41, 36, 56, 0.92);
+  display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+}
+.lightbox[hidden] { display: none; }
+.lightbox img { max-width: 100%; max-height: 85vh; border-radius: 8px; }
+
+/* ---------- 토스트 ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 2.2rem; transform: translateX(-50%) translateY(20px);
+  background: #3f3852; color: var(--paper); font-size: 0.82rem;
+  padding: 0.6rem 1.3rem; border-radius: 999px; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s; z-index: 60; white-space: nowrap;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---------- 스크롤 등장 ---------- */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .intro { animation: none; opacity: 1; }
+  .sprig { animation: none; }
+  .scroll-hint span { animation: none; }
+}

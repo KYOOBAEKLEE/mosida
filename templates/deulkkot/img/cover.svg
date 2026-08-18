@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#e9e6c9"/><stop offset="1" stop-color="#c9cf9e"/></linearGradient></defs>
+<rect width="600" height="800" fill="url(#g)"/>
+<g fill="none" stroke="#7f9450" stroke-opacity="0.7" stroke-width="3" stroke-linecap="round">
+<path d="M 300 624 C 270 496, 330 440.00000000000006, 300 366"/>
+<path d="M 294 528 Q 250 480 240 400"/>
+<path d="M 308 480 Q 348 448.00000000000006 358 368"/>
+</g>
+<circle cx="240" cy="392" r="7" fill="#d9a441"/>
+<circle cx="358" cy="360" r="7" fill="#d9a441"/>
+<ellipse cx='300' cy='303' rx='13.2' ry='33' transform='rotate(0 300 336)' fill='#fffdf4' stroke='#7f9450' stroke-width='2'/><ellipse cx='300' cy='303' rx='13.2' ry='33' transform='rotate(45 300 336)' fill='#fffdf4' stroke='#7f9450' stroke-width='2'/><ellipse cx='300' cy='303' rx='13.2' ry='33' transform='rotate(90 300 336)' fill='#fffdf4' stroke='#7f9450' stroke-width='2'/><ellipse cx='300' cy='303' rx='13.2' ry='33' transform='rotate(135 300 336)' fill='#fffdf4' stroke='#7f9450' stroke-width='2'/><ellipse cx='300' cy='303' rx='13.2' ry='33' transform='rotate(180 300 336)' fill='#fffdf4' stroke='#7f9450' stroke-width='2'/><ellipse cx='300' cy='303' rx='13.2' ry='33' transform='rotate(225 300 336)' fill='#fffdf4' stroke='#7f9450' stroke-width='2'/><ellipse cx='300' cy='303' rx='13.2' ry='33' transform='rotate(270 300 336)' fill='#fffdf4' stroke='#7f9450' stroke-width='2'/><ellipse cx='300' cy='303' rx='13.2' ry='33' transform='rotate(315 300 336)' fill='#fffdf4' stroke='#7f9450' stroke-width='2'/><circle cx='300' cy='336' r='16.8' fill='#d9a441'/>
+<text x="50%" y="90%" text-anchor="middle" font-family="serif" font-size="27" fill="#5c6b3c" fill-opacity="0.75" letter-spacing="3">OUR WEDDING</text>
+</svg>

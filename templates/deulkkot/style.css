@@ -1,0 +1,199 @@
+/* 들꽃 — 들꽃과 데이지의 소박한 설렘. 크림 위 옐로우그린과 머스터드. */
+:root {
+  --paper: #fbf8ef;
+  --paper-deep: #f4efdc;
+  --ink: #4b4a38;
+  --ink-soft: #8b8873;
+  --green: #7f9450;
+  --green-soft: #c9cf9e;
+  --mustard: #d9a441;
+  --mustard-soft: #ecd9ae;
+  --line: #e7e2ca;
+  --serif: "Gowun Batang", "Noto Serif KR", serif;
+  --display: "Gowun Dodum", "Gowun Batang", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--serif);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.8;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app { max-width: 440px; margin: 0 auto; overflow: hidden; }
+
+/* 손그림 들꽃 스프리그 — 데이지 한 송이와 풀줄기 */
+.sprig {
+  width: 190px; height: 54px; margin: 0 auto 0.6rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 60'%3E%3Cg fill='none' stroke='%237f9450' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M14 40 C 50 28 80 44 106 34 C 136 24 176 42 206 30'/%3E%3Cpath d='M52 35 Q 46 22 56 16'/%3E%3Cpath d='M162 36 Q 170 24 164 15'/%3E%3Cpath d='M84 39 q -2 10 -10 12'/%3E%3Cpath d='M106 34 Q 108 29 110 25'/%3E%3C/g%3E%3Ccircle cx='56' cy='15' r='2.6' fill='%23d9a441'/%3E%3Ccircle cx='164' cy='14' r='2.6' fill='%23d9a441'/%3E%3Cg stroke='%237f9450' stroke-width='1.2' fill='%23fffdf4'%3E%3Cellipse cx='110' cy='20' rx='3.6' ry='10'/%3E%3Cellipse cx='110' cy='20' rx='3.6' ry='10' transform='rotate(45 110 20)'/%3E%3Cellipse cx='110' cy='20' rx='3.6' ry='10' transform='rotate(90 110 20)'/%3E%3Cellipse cx='110' cy='20' rx='3.6' ry='10' transform='rotate(135 110 20)'/%3E%3C/g%3E%3Ccircle cx='110' cy='20' r='4.6' fill='%23d9a441'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* ---------- 표지 ---------- */
+.cover {
+  min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 3.5rem 1.5rem 4rem; position: relative;
+}
+.cover-eyebrow {
+  font-family: var(--display); font-size: 0.82rem;
+  letter-spacing: 0.35em; color: var(--green); text-indent: 0.35em;
+}
+.cover-names {
+  font-family: var(--display); font-weight: 400; font-size: 1.85rem;
+  margin: 1.1rem 0 1.9rem; letter-spacing: 0.1em; color: var(--ink);
+}
+.cover-names em {
+  display: block; font-style: normal; font-family: var(--serif); font-size: 0.95rem;
+  color: var(--mustard); margin: 0.3rem 0;
+}
+.cover-photo {
+  width: min(76vw, 290px); aspect-ratio: 3 / 4; overflow: hidden;
+  border-radius: 18px;
+  outline: 1.5px dashed var(--mustard); outline-offset: 8px;
+  transform: rotate(-1.4deg);
+  box-shadow: 0 18px 40px -18px rgba(75, 74, 56, 0.4);
+  background: #fff;
+}
+.cover-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cover-date { margin-top: 2.2rem; font-size: 1rem; letter-spacing: 0.14em; }
+.cover-venue { font-size: 0.85rem; color: var(--ink-soft); letter-spacing: 0.08em; }
+
+.scroll-hint { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); }
+.scroll-hint span {
+  display: block; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--mustard);
+  animation: bob 1.8s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(10px); opacity: 1; }
+}
+
+/* ---------- 공통 섹션 ---------- */
+.section { padding: 4.5rem 1.7rem; text-align: center; }
+.section:nth-of-type(even) { background: var(--paper-deep); }
+
+.section-title {
+  font-family: var(--display); font-weight: 400; font-size: 1.12rem;
+  letter-spacing: 0.24em; text-indent: 0.24em; color: var(--green);
+  margin-bottom: 2.2rem;
+}
+.section-title::after {
+  content: ""; display: block; width: 64px; height: 9px; margin: 0.8rem auto 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 10'%3E%3Cpath d='M2 6 Q 12 2 22 6 T 42 6 T 62 6 T 78 5' fill='none' stroke='%23c9cf9e' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.greeting-message { white-space: pre-line; font-size: 0.95rem; }
+
+.parents { margin-top: 2.4rem; font-size: 0.95rem; }
+.parents b { font-weight: 700; }
+.parents p + p { margin-top: 0.5rem; }
+
+.contact-row, .map-buttons { display: flex; gap: 0.6rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+
+.btn-ghost {
+  font-family: var(--serif); font-size: 0.82rem; color: var(--ink);
+  background: transparent; border: 1.5px dashed var(--green-soft); border-radius: 999px;
+  padding: 0.55rem 1.15rem; cursor: pointer; text-decoration: none;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.btn-ghost:active { background: var(--green); color: var(--paper); border-color: var(--green); border-style: solid; }
+
+/* ---------- 날짜 ---------- */
+.when-date { font-size: 1.02rem; margin-bottom: 2rem; letter-spacing: 0.05em; }
+
+.calendar {
+  display: inline-grid; grid-template-columns: repeat(7, 2.5rem);
+  gap: 0.15rem; font-size: 0.82rem; margin-bottom: 1.6rem;
+}
+.calendar .dow { color: var(--ink-soft); font-size: 0.7rem; padding: 0.4rem 0; font-family: var(--display); }
+.calendar .dow:first-child, .calendar .day.sun { color: #c26d4f; }
+.calendar .day { padding: 0.45rem 0; border-radius: 50%; }
+.calendar .day.wedding-day {
+  background: var(--mustard); color: #fff; font-weight: 700;
+  box-shadow: 0 6px 14px -6px var(--mustard);
+}
+.dday { font-size: 0.9rem; color: var(--ink-soft); }
+.dday b { color: var(--mustard); font-weight: 700; }
+
+/* ---------- 갤러리 — 폴라로이드 느낌 ---------- */
+.gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 0.8rem; padding: 0 0.2rem; }
+.gallery img {
+  width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+  border: 6px solid #fffdf6; border-bottom-width: 18px; border-radius: 3px;
+  box-shadow: 0 8px 18px -8px rgba(75, 74, 56, 0.35);
+  cursor: pointer; transition: transform 0.25s;
+}
+.gallery img:nth-child(odd) { transform: rotate(-1.3deg); }
+.gallery img:nth-child(even) { transform: rotate(1.3deg); }
+.gallery img:active { transform: scale(0.96); }
+
+/* ---------- 오시는 길 ---------- */
+.where-venue { font-size: 1rem; }
+.where-address { font-size: 0.88rem; color: var(--ink-soft); margin-top: 0.3rem; }
+
+/* ---------- 계좌 ---------- */
+.money-note { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 1.8rem; }
+.accordion { max-width: 320px; margin: 0 auto; text-align: left; }
+.accordion details {
+  border: 1.5px dashed var(--line); border-radius: 14px;
+  background: #fffdf6; margin-bottom: 0.6rem; overflow: hidden;
+}
+.accordion summary {
+  padding: 0.85rem 1.1rem; cursor: pointer; font-size: 0.9rem;
+  letter-spacing: 0.06em; list-style: none; position: relative; font-family: var(--display);
+}
+.accordion summary::after {
+  content: "﹀"; position: absolute; right: 1.1rem; color: var(--mustard);
+  transition: transform 0.25s;
+}
+.accordion details[open] summary::after { transform: rotate(180deg); }
+.account-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
+  padding: 0.7rem 1.1rem; border-top: 1px dashed var(--line); font-size: 0.82rem;
+}
+.account-row .who { color: var(--ink-soft); font-size: 0.75rem; }
+.copy-btn {
+  flex-shrink: 0; font-family: var(--serif); font-size: 0.72rem;
+  border: 1px solid var(--mustard-soft); background: transparent; color: var(--mustard);
+  border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer;
+}
+
+/* ---------- 푸터 ---------- */
+.footer { text-align: center; padding: 3.5rem 1.5rem 3rem; background: #5c6b3c; color: var(--paper); }
+.sprig-footer { filter: brightness(3.2); opacity: 0.85; margin-bottom: 1rem; }
+.footer-names { font-family: var(--display); letter-spacing: 0.2em; margin-bottom: 1.4rem; }
+.footer .btn-ghost { color: var(--paper); border-color: rgba(251, 248, 239, 0.45); }
+.footer-brand { margin-top: 2.5rem; font-size: 0.68rem; letter-spacing: 0.3em; opacity: 0.5; }
+
+/* ---------- 라이트박스 ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 50; background: rgba(43, 46, 30, 0.92);
+  display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+}
+.lightbox[hidden] { display: none; }
+.lightbox img { max-width: 100%; max-height: 85vh; border-radius: 6px; }
+
+/* ---------- 토스트 ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 2.2rem; transform: translateX(-50%) translateY(20px);
+  background: #5c6b3c; color: var(--paper); font-size: 0.82rem;
+  padding: 0.6rem 1.3rem; border-radius: 999px; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s; z-index: 60; white-space: nowrap;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---------- 스크롤 등장 ---------- */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .scroll-hint span { animation: none; }
+}

@@ -1,0 +1,248 @@
+/* 달빛(月光) — 달빛이 내려앉은 남빛 호숫가의 밤 */
+:root {
+  --night: #1a2438;
+  --night-deep: #141c2c;
+  --night-abyss: #0e1524;
+  --silver: #dfe6ee;
+  --silver-soft: #a3b1c6;
+  --firefly: #e9c876;
+  --firefly-glow: #f4e8a0;
+  --line: #2d3b55;
+  --serif: "Gowun Batang", "Noto Serif KR", serif;
+  --display: "Hahmlet", "Gowun Batang", serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--serif);
+  background: var(--night);
+  color: var(--silver);
+  line-height: 1.8;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 밤안개 질감 */
+.grain {
+  position: fixed; inset: 0; z-index: 10; pointer-events: none; opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.87 0 0 0 0 0.9 0 0 0 0 0.94 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+#app { max-width: 440px; margin: 0 auto; overflow: hidden; }
+
+/* 물결 라인 장식 */
+.wave {
+  width: 132px; height: 10px; margin: 0 auto;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='10'%3E%3Cpath d='M0 5 Q 11 0, 22 5 T 44 5' fill='none' stroke='%23a3b1c6' stroke-opacity='0.55' stroke-width='1'/%3E%3C/svg%3E") repeat-x center;
+}
+
+/* ---------- 표지 ---------- */
+.cover {
+  min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 3.5rem 1.5rem 4rem; position: relative;
+  background: linear-gradient(180deg, #131b2c 0%, var(--night) 55%, #1c2a45 100%);
+}
+/* 달빛이 퍼지며 밝아지는 배경 */
+.cover::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(circle at 50% 12%, rgba(244, 232, 160, 0.14), transparent 55%);
+  opacity: 0; animation: moonlight 2.6s ease 0.3s forwards;
+}
+@keyframes moonlight { to { opacity: 1; } }
+
+/* 차오르는 보름달 */
+.cover-moon {
+  position: relative; width: 74px; height: 74px; border-radius: 50%;
+  margin-bottom: 1.6rem; overflow: hidden;
+  background: radial-gradient(circle at 38% 34%, #f6f9fc, var(--silver) 58%, #b9c6d8);
+  animation: moon-bright 2.6s ease 0.3s forwards;
+}
+.moon-shade {
+  position: absolute; inset: -6%; border-radius: 50%;
+  background: #10182a;
+  animation: moon-wax 2.2s cubic-bezier(0.55, 0, 0.35, 1) 0.3s forwards;
+}
+@keyframes moon-wax { to { transform: translateX(115%); } }
+@keyframes moon-bright {
+  from { box-shadow: 0 0 0 0 transparent; }
+  to { box-shadow: 0 0 24px 6px rgba(244, 232, 160, 0.35), 0 0 70px 18px rgba(223, 230, 238, 0.14); }
+}
+
+.cover-eyebrow {
+  font-family: var(--display); font-weight: 300; font-size: 0.7rem;
+  letter-spacing: 0.45em; color: var(--firefly); text-indent: 0.45em;
+}
+.cover-names {
+  font-family: var(--display); font-weight: 400; font-size: 1.9rem;
+  margin: 1.2rem 0 1.8rem; letter-spacing: 0.08em; color: #f0f4f9;
+}
+.cover-names em {
+  display: block; font-style: normal; font-size: 0.8rem;
+  color: var(--silver-soft); margin: 0.4rem 0; letter-spacing: 0.3em; text-indent: 0.3em;
+}
+.cover-photo {
+  width: min(78vw, 300px); aspect-ratio: 3 / 4; overflow: hidden;
+  border-radius: 150px 150px 14px 14px;  /* 달이 뜨는 창 */
+  border: 1px solid rgba(223, 230, 238, 0.35);
+  outline: 1px solid rgba(233, 200, 118, 0.2); outline-offset: 5px;
+  box-shadow: 0 22px 55px -18px rgba(0, 0, 0, 0.65), 0 0 40px -6px rgba(223, 230, 238, 0.12);
+}
+.cover-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cover-date { margin-top: 2rem; font-size: 1rem; letter-spacing: 0.15em; }
+.cover-venue { font-size: 0.85rem; color: var(--silver-soft); letter-spacing: 0.1em; margin-bottom: 1.4rem; }
+
+/* 인트로 모션 — 달이 차오르며 글이 떠오른다 (3초 이내) */
+.intro { opacity: 0; animation: intro-up 0.9s ease forwards; }
+.intro-1 { animation-delay: 1s; }
+.intro-2 { animation-delay: 1.25s; }
+.intro-3 { animation-delay: 1.5s; }
+.intro-4 { animation-delay: 1.8s; }
+@keyframes intro-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+.scroll-hint { position: absolute; bottom: 1.4rem; left: 50%; transform: translateX(-50%); }
+.scroll-hint span {
+  display: block; width: 1px; height: 42px;
+  background: linear-gradient(rgba(223, 230, 238, 0.6), transparent);
+  animation: drip 2.2s ease-in-out infinite;
+}
+@keyframes drip {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ---------- 공통 섹션 ---------- */
+.section { padding: 4.5rem 1.7rem; text-align: center; }
+.section:nth-of-type(even) { background: var(--night-deep); }
+
+.section-title {
+  font-family: var(--display); font-weight: 400; font-size: 1.15rem;
+  letter-spacing: 0.28em; text-indent: 0.28em; color: var(--firefly);
+  margin-bottom: 2.2rem;
+}
+.ornament { margin-bottom: 1.2rem; opacity: 0.8; }
+
+.greeting-message { white-space: pre-line; font-size: 0.95rem; }
+
+.parents { margin-top: 2.4rem; font-size: 0.95rem; }
+.parents b { font-weight: 700; color: #f0f4f9; }
+.parents p + p { margin-top: 0.5rem; }
+
+.contact-row, .map-buttons { display: flex; gap: 0.6rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+
+.btn-ghost {
+  font-family: var(--serif); font-size: 0.82rem; color: var(--silver);
+  background: transparent; border: 1px solid rgba(163, 177, 198, 0.45); border-radius: 999px;
+  padding: 0.55rem 1.15rem; cursor: pointer; text-decoration: none;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.btn-ghost:active { background: var(--firefly); color: var(--night-abyss); border-color: var(--firefly); }
+
+/* ---------- 날짜 ---------- */
+.when-date { font-size: 1.02rem; margin-bottom: 2rem; letter-spacing: 0.05em; }
+
+.calendar {
+  display: inline-grid; grid-template-columns: repeat(7, 2.5rem);
+  gap: 0.15rem; font-size: 0.82rem; margin-bottom: 1.6rem;
+}
+.calendar .dow { color: var(--silver-soft); font-size: 0.7rem; padding: 0.4rem 0; }
+.calendar .dow:first-child, .calendar .day.sun { color: #e29a8c; }
+.calendar .day { padding: 0.45rem 0; border-radius: 50%; }
+.calendar .day.wedding-day {
+  background: var(--firefly); color: var(--night-abyss); font-weight: 700;
+  box-shadow: 0 0 16px -2px rgba(233, 200, 118, 0.7);
+}
+.dday { font-size: 0.9rem; color: var(--silver-soft); }
+.dday b { color: var(--firefly); font-weight: 700; }
+
+/* ---------- 갤러리 ---------- */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+.gallery img {
+  width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+  border-radius: 10px; cursor: pointer; border: 1px solid var(--line);
+  transition: transform 0.25s;
+}
+.gallery img:active { transform: scale(0.96); }
+/* 첫 사진은 크게 — 리듬감 */
+.gallery img:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+
+/* ---------- 오시는 길 ---------- */
+.where-venue { font-size: 1rem; }
+.where-venue b { color: #f0f4f9; }
+.where-address { font-size: 0.88rem; color: var(--silver-soft); margin-top: 0.3rem; }
+
+/* ---------- 계좌 ---------- */
+.money-note { font-size: 0.88rem; color: var(--silver-soft); margin-bottom: 1.8rem; }
+.accordion { max-width: 320px; margin: 0 auto; text-align: left; }
+.accordion details {
+  border: 1px solid var(--line); border-radius: 10px;
+  background: rgba(14, 21, 36, 0.55); margin-bottom: 0.6rem; overflow: hidden;
+}
+.accordion summary {
+  padding: 0.85rem 1.1rem; cursor: pointer; font-size: 0.9rem;
+  letter-spacing: 0.06em; list-style: none; position: relative;
+}
+.accordion summary::after {
+  content: "﹀"; position: absolute; right: 1.1rem; color: var(--firefly);
+  transition: transform 0.25s;
+}
+.accordion details[open] summary::after { transform: rotate(180deg); }
+.account-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
+  padding: 0.7rem 1.1rem; border-top: 1px solid var(--line); font-size: 0.82rem;
+}
+.account-row .who { color: var(--silver-soft); font-size: 0.75rem; }
+.copy-btn {
+  flex-shrink: 0; font-family: var(--serif); font-size: 0.72rem;
+  border: 1px solid rgba(233, 200, 118, 0.5); background: transparent; color: var(--firefly);
+  border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer;
+}
+
+/* ---------- 푸터 ---------- */
+.footer { text-align: center; padding: 4rem 1.5rem 3rem; background: var(--night-abyss); }
+.footer-moon {
+  width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 1.4rem;
+  background: radial-gradient(circle at 38% 34%, #f6f9fc, var(--silver) 60%, #b9c6d8);
+  box-shadow: 0 0 18px 3px rgba(244, 232, 160, 0.25);
+}
+.footer-names { font-family: var(--display); letter-spacing: 0.2em; margin-bottom: 1.4rem; color: #f0f4f9; }
+.footer .btn-ghost { color: var(--silver); border-color: rgba(223, 230, 238, 0.3); }
+.footer-brand { margin-top: 2.5rem; font-size: 0.68rem; letter-spacing: 0.3em; opacity: 0.45; }
+
+/* ---------- 라이트박스 ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 50; background: rgba(8, 12, 22, 0.94);
+  display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+}
+.lightbox[hidden] { display: none; }
+.lightbox img { max-width: 100%; max-height: 85vh; border-radius: 6px; }
+
+/* ---------- 토스트 ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 2.2rem; transform: translateX(-50%) translateY(20px);
+  background: var(--silver); color: var(--night-abyss); font-size: 0.82rem;
+  padding: 0.6rem 1.3rem; border-radius: 999px; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s; z-index: 60; white-space: nowrap;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---------- 스크롤 등장 ---------- */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .scroll-hint span { animation: none; }
+  .intro { animation: none; opacity: 1; }
+  .moon-shade { display: none; }
+  .cover::before { animation: none; opacity: 1; }
+  .cover-moon { animation: none; box-shadow: 0 0 24px 6px rgba(244, 232, 160, 0.35), 0 0 70px 18px rgba(223, 230, 238, 0.14); }
+}

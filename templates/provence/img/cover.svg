@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#cfc5e3"/><stop offset="1" stop-color="#9a86c0"/></linearGradient></defs>
+<rect width="600" height="800" fill="url(#g)"/>
+<g fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="2.5" stroke-linecap="round">
+<path d="M 300 624 C 286 464, 314 364, 300 224"/>
+<ellipse cx="300" cy="210" rx="14" ry="26"/>
+<ellipse cx="272" cy="312" rx="14" ry="24" transform="rotate(-35 272 312)"/><ellipse cx="328" cy="312" rx="14" ry="24" transform="rotate(35 328 312)"/><ellipse cx="270" cy="392" rx="14" ry="24" transform="rotate(-35 270 392)"/><ellipse cx="330" cy="392" rx="14" ry="24" transform="rotate(35 330 392)"/><ellipse cx="272" cy="472" rx="14" ry="24" transform="rotate(-35 272 472)"/><ellipse cx="328" cy="472" rx="14" ry="24" transform="rotate(35 328 472)"/>
+<path d="M 300 552 C 260 524, 240 576, 230 616" stroke-opacity="0.4"/>
+</g>
+<text x="50%" y="90%" text-anchor="middle" font-family="serif" font-size="27" fill="#ffffff" fill-opacity="0.8" letter-spacing="3">NOTRE MARIAGE</text>
+</svg>

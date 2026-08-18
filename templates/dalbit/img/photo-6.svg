@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#20304a"/><stop offset="1" stop-color="#0f1626"/></linearGradient>
+<radialGradient id="m" cx="0.38" cy="0.34" r="1"><stop offset="0" stop-color="#f6f9fc"/><stop offset="0.6" stop-color="#dfe6ee"/><stop offset="1" stop-color="#b9c6d8"/></radialGradient></defs>
+<rect width="600" height="600" fill="url(#g)"/>
+<circle cx="300" cy="168.00000000000003" r="125.39999999999999" fill="#f4e8a0" fill-opacity="0.08"/>
+<circle cx="300" cy="168.00000000000003" r="92.39999999999999" fill="#f4e8a0" fill-opacity="0.1"/>
+<circle cx="300" cy="168.00000000000003" r="66" fill="url(#m)"/>
+<path d="M 168 372 q 33 -7.2, 66 0 t 66 0 t 66 0" transform="translate(-66 0)" fill="none" stroke="#dfe6ee" stroke-opacity="0.4" stroke-width="2"/>
+<path d="M 168 408.00000000000006 q 33 -7.2, 66 0 t 66 0 t 66 0" transform="translate(-66 0)" fill="none" stroke="#dfe6ee" stroke-opacity="0.30000000000000004" stroke-width="2"/>
+<path d="M 168 444 q 33 -7.2, 66 0 t 66 0 t 66 0" transform="translate(-66 0)" fill="none" stroke="#dfe6ee" stroke-opacity="0.2" stroke-width="2"/>
+<circle cx="144" cy="300" r="3" fill="#f4e8a0" fill-opacity="0.75"/>
+<circle cx="456" cy="252" r="4" fill="#f4e8a0" fill-opacity="0.63"/>
+<circle cx="384" cy="348" r="3" fill="#f4e8a0" fill-opacity="0.51"/>
+<circle cx="204.00000000000003" cy="228" r="4" fill="#f4e8a0" fill-opacity="0.39"/>
+<text x="50%" y="88%" text-anchor="middle" font-family="serif" font-size="27" fill="#dfe6ee" fill-opacity="0.8" letter-spacing="3">PHOTO 6</text>
+</svg>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>모바일 청첩장</title>
+<meta name="robots" content="noindex" />
+<meta property="og:title" content="저희 결혼합니다" />
+<meta property="og:description" content="소중한 분들을 초대합니다" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="frame-rounded">
+
+<main id="app">
+  <section class="cover">
+    <p class="cover-eyebrow reveal">THE WEDDING OF</p>
+    <h1 class="cover-names reveal">
+      <span data-bind="groom.name"></span>
+      <em>&</em>
+      <span data-bind="bride.name"></span>
+    </h1>
+    <figure class="cover-photo reveal">
+      <img data-src="cover.photo" alt="웨딩 사진" />
+    </figure>
+    <p class="cover-date reveal" data-bind="fmt.coverDate"></p>
+    <p class="cover-venue reveal" data-bind="fmt.coverVenue"></p>
+  </section>
+
+  <section class="section greeting">
+    <h2 class="section-title reveal" data-bind="greeting.title"></h2>
+    <p class="greeting-message reveal" data-bind="greeting.message"></p>
+    <div class="parents reveal">
+      <p><span data-bind="groom.father"></span> · <span data-bind="groom.mother"></span>의 <span data-bind="groom.order"></span> <b data-bind="groom.name"></b></p>
+      <p><span data-bind="bride.father"></span> · <span data-bind="bride.mother"></span>의 <span data-bind="bride.order"></span> <b data-bind="bride.name"></b></p>
+    </div>
+    <div class="contact-row reveal">
+      <a class="btn-ghost" data-tel="groom.phone">신랑에게 연락하기</a>
+      <a class="btn-ghost" data-tel="bride.phone">신부에게 연락하기</a>
+    </div>
+  </section>
+
+  <section class="section when">
+    <h2 class="section-title reveal">예식 안내</h2>
+    <p class="when-date reveal" data-bind="fmt.fullDate"></p>
+    <div class="calendar reveal" id="calendar" aria-label="예식일 달력"></div>
+    <p class="dday reveal" id="dday"></p>
+  </section>
+
+  <section class="section gallery-section">
+    <h2 class="section-title reveal">우리의 순간</h2>
+    <div class="gallery reveal" id="gallery"></div>
+  </section>
+
+  <section class="section where">
+    <h2 class="section-title reveal">오시는 길</h2>
+    <p class="where-venue reveal"><b data-bind="wedding.venueName"></b> <span data-bind="wedding.hall"></span></p>
+    <p class="where-address reveal" data-bind="wedding.address"></p>
+    <div class="map-buttons reveal">
+      <a class="btn-ghost" id="kakao-map" target="_blank" rel="noopener">카카오맵</a>
+      <a class="btn-ghost" id="naver-map" target="_blank" rel="noopener">네이버지도</a>
+      <button class="btn-ghost" id="copy-address">주소 복사</button>
+    </div>
+  </section>
+
+  <section class="section money">
+    <h2 class="section-title reveal">마음 전하실 곳</h2>
+    <p class="money-note reveal">참석이 어려워 마음만 전하고 싶으신 분들을 위해<br />계좌번호를 안내드립니다.</p>
+    <div class="accordion reveal" id="accounts"></div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-names"><span data-bind="groom.name"></span> · <span data-bind="bride.name"></span></p>
+    <button class="btn-ghost" id="share">청첩장 공유하기</button>
+    <p class="footer-brand">모시다 · mosida</p>
+  </footer>
+</main>
+
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lightbox-img" alt="사진 크게 보기" />
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="data.js"></script>
+<script src="invite.js"></script>
+</body>
+</html>

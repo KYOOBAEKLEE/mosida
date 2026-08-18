@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#a5525e"/><stop offset="1" stop-color="#7a2a35"/></linearGradient></defs>
+<rect width="600" height="600" fill="url(#g)"/>
+<g fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round">
+<path d="M 300 432 C 278 348, 322 300, 300 234"/>
+<circle cx="300" cy="192" r="10"/>
+<path d="M 290 192 a 10 10 0 0 1 20 -4"/>
+<path d="M 300 170 a 22 22 0 0 1 22 22 a 22 22 0 0 1 -22 22 a 22 22 0 0 1 -22 -22 a 22 22 0 0 1 14 -20"/>
+<path d="M 300 156 a 36 36 0 0 1 36 36 a 36 36 0 0 1 -18 31"/>
+<path d="M 264 192 a 36 36 0 0 1 18 -31"/>
+<ellipse cx="266" cy="330" rx="30" ry="13" transform="rotate(-32 266 330)"/>
+<ellipse cx="334" cy="378" rx="30" ry="13" transform="rotate(32 334 378)"/>
+</g>
+<text x="50%" y="88%" text-anchor="middle" font-family="serif" font-size="27" fill="#ffffff" fill-opacity="0.8" letter-spacing="3">PHOTO 3</text>
+</svg>

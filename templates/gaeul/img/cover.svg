@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#e8c49a"/><stop offset="1" stop-color="#c07a4a"/></linearGradient></defs>
+<rect width="600" height="800" fill="url(#g)"/>
+<g fill="none" stroke="#fffaf0" stroke-opacity="0.6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<g transform="translate(300 360) rotate(-8) scale(2.6)">
+<path d="M0 34 V6 M0 6 L0 -30 M0 -8 L-22 -26 M0 -8 L22 -26 M0 8 L-30 0 M0 8 L30 0"/>
+<path d="M0 -30 l-5 8 l5 -3 l5 3 Z M-22 -26 l-1 8 l5 -4 Z M22 -26 l1 8 l-5 -4 Z"/>
+</g><g transform="translate(180 560) rotate(-30) scale(1.6)">
+<path d="M0 30 V8 M0 8 C-26 6 -30 -18 -14 -26 C-6 -30 6 -30 14 -26 C30 -18 26 6 0 8 Z M0 8 L0 -22 M-8 4 L-10 -18 M8 4 L10 -18"/>
+</g><g transform="translate(430 590) rotate(40) scale(1.3)">
+<path d="M0 34 V6 M0 6 L0 -30 M0 -8 L-22 -26 M0 -8 L22 -26 M0 8 L-30 0 M0 8 L30 0"/>
+<path d="M0 -30 l-5 8 l5 -3 l5 3 Z M-22 -26 l-1 8 l5 -4 Z M22 -26 l1 8 l-5 -4 Z"/>
+</g><g transform="translate(300 150) rotate(15) scale(1.1)">
+<path d="M0 30 V8 M0 8 C-26 6 -30 -18 -14 -26 C-6 -30 6 -30 14 -26 C30 -18 26 6 0 8 Z M0 8 L0 -22 M-8 4 L-10 -18 M8 4 L10 -18"/>
+</g>
+</g>
+</svg>

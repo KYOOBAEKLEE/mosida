@@ -2,7 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://mosida.example.com/</loc><priority>1.0</priority></url>
   <url><loc>https://mosida.example.com/order/</loc><priority>0.9</priority></url>
+  <url><loc>https://mosida.example.com/templates/sunbaek/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/misaek/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/yeonbunhong/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/saebyeok/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/yeondut/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/morae/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/jaetbit/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/meok/</loc><priority>0.8</priority></url>
   <url><loc>https://mosida.example.com/templates/danyeon/</loc><priority>0.8</priority></url>
   <url><loc>https://mosida.example.com/templates/haneul/</loc><priority>0.8</priority></url>
   <url><loc>https://mosida.example.com/templates/dahm/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/beotkkot/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/deulkkot/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/film/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/suchae/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/gaeul/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/byeolbam/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/seolya/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/jangmi/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/moran/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/midnight/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/dalbit/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/provence/</loc><priority>0.8</priority></url>
+  <url><loc>https://mosida.example.com/templates/baekya/</loc><priority>0.8</priority></url>
 </urlset>
